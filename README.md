@@ -17,8 +17,8 @@ The repository consists of the following folders:
   * ***life_expectancy.csv*** can be accessed from <https://www.kaggle.com/datasets/lashagoch/life-expectancy-who-updated/data>, while additional relevant data is available from <https://www.who.int/data/gho/data/indicators/indicator-details/GHO/current-health-expenditure-(che)-as-percentage-of-gross-domestic-product-(gdp)-(-)>.
   * ***diabetes_diagnosis_data.R*** and ***life_expectancy_data.R*** are the R-codes of the process of refining the raw data, ***diabetes_diagnosis.csv*** and ***life_expectancy.csv***, respectively.
  
-* Functions: R-code of all functions for running the EM-ADMM algorithm and R-code for fitting simulation data using each method;
-  * ***functions.R*** is the R-code of all functions for running EM-ADMM algorithm.
+* Functions: R-code of all functions for running the EM-PGM algorithm and R-code for fitting simulation data using each method;
+  * ***functions.R*** is the R-code of all functions for running EM-PGM algorithm.
   * ***mvFMR.R***, ***mvFMR_LASSO.R***, ***mvFMR_SCAD.R***, and ***mvFMR_MCP.R*** contain the R-codes for fitting simulation data using mvFMR with their respective penalty functions presented in Section 5.3.
   * ***mvFMR_fixedK.R***, ***mvFMR_LASSO_fixedK.R***, ***mvFMR_SCAD_fixedK.R***, and ***mvFMR_MCP_fixedK.R*** contain the R-codes for fitting the data using mvFMR with their respective penalty functions presented in Section 5.1, Section 5.2, and Section 5.3, assuming K is known.
   * ***flexmix_fixedK.R*** contains the R-code for fitting the data using the R-package "Flexmix" presented in Section 5.1 and Section 5.2.
