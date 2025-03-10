@@ -14,8 +14,8 @@
 requiredPackages <- c("MASS", "pracma", "expm", "corrcoverage", 
                       "causact", "fossil", "flexmix", "gtools")
 for(p in requiredPackages){
-  if(!require(p,character.only = TRUE)) install.packages(p)
-  library(p,character.only = TRUE)
+  if(!require(p,character.only=TRUE)) install.packages(p)
+  library(p,character.only=TRUE)
 }
 
 
@@ -46,7 +46,7 @@ gradient_obj <- function(n, wk, B, inv_sigma){
   for(i in 1:n){
     a[[i]] <- wk[i]*(X[i,]%*%t(Y[i,]-t(B)%*%X[i,])%*%inv_sigma)
   }
-  b <- (-1/n)*Reduce("+",a)
+  b <- (-1/n)*Reduce("+", a)
   
   return(b)
 }
@@ -65,7 +65,7 @@ PGM_mvFMR_LASSO <- function(pi_, Bk, inv_sigma, w, lambda, eta, l){
   Bk_sol[[1]] <- Bk_old
   Bk_sol[[2]] <- list()
   for(k in 1:K){
-    Bk_sol[[2]][[k]] <- LASSO_thresholding(Bk_sol[[1]][[k]]-eta*gradient_obj(n, w_new[[k]], Bk_sol[[1]][[k]], inv_sigma_old[[k]]), 
+    Bk_sol[[2]][[k]] <- LASSO_thresholding(Bk_sol[[1]][[k]] - eta*gradient_obj(n, w_new[[k]], Bk_sol[[1]][[k]], inv_sigma_old[[k]]), 
                                            pi_new[k], lambda[k], eta)
   }
   
@@ -73,7 +73,7 @@ PGM_mvFMR_LASSO <- function(pi_, Bk, inv_sigma, w, lambda, eta, l){
   while(all(diff_norm(Bk_sol[[t-1]], Bk_sol[[t]]) >= rep(1e-6, K))){
     Bk_sol[[t+1]] <- list()
     for(k in 1:K){
-      Bk_sol[[t+1]][[k]] <- LASSO_thresholding(Bk_sol[[t]][[k]]-eta*gradient_obj(n, w_new[[k]], Bk_sol[[t]][[k]], inv_sigma_old[[k]]), 
+      Bk_sol[[t+1]][[k]] <- LASSO_thresholding(Bk_sol[[t]][[k]] - eta*gradient_obj(n, w_new[[k]], Bk_sol[[t]][[k]], inv_sigma_old[[k]]), 
                                                pi_new[k], lambda[k], eta)
     }
     
@@ -103,7 +103,7 @@ PGM_mvFMR_SCAD <- function(pi_, Bk, inv_sigma, w, lambda, eta, a, l){
   Bk_sol[[1]] <- Bk_old
   Bk_sol[[2]] <- list()
   for(k in 1:K){
-    Bk_sol[[2]][[k]] <- SCAD_thresholding(Bk_sol[[1]][[k]]-eta*gradient_obj(n, w_new[[k]], Bk_sol[[1]][[k]], inv_sigma_old[[k]]),
+    Bk_sol[[2]][[k]] <- SCAD_thresholding(Bk_sol[[1]][[k]] - eta*gradient_obj(n, w_new[[k]], Bk_sol[[1]][[k]], inv_sigma_old[[k]]),
                                           pi_new[k], lambda[k], eta, a)
   }
 
@@ -111,7 +111,7 @@ PGM_mvFMR_SCAD <- function(pi_, Bk, inv_sigma, w, lambda, eta, a, l){
   while(all(diff_norm(Bk_sol[[t-1]], Bk_sol[[t]]) >= rep(1e-6, K))){
     Bk_sol[[t+1]] <- list()
     for(k in 1:K){
-      Bk_sol[[t+1]][[k]] <- SCAD_thresholding(Bk_sol[[t]][[k]]-eta*gradient_obj(n, w_new[[k]], Bk_sol[[t]][[k]], inv_sigma_old[[k]]),
+      Bk_sol[[t+1]][[k]] <- SCAD_thresholding(Bk_sol[[t]][[k]] - eta*gradient_obj(n, w_new[[k]], Bk_sol[[t]][[k]], inv_sigma_old[[k]]),
                                               pi_new[k], lambda[k], eta, a)
     }
 
@@ -141,15 +141,15 @@ PGM_mvFMR_MCP <- function(pi_, Bk, inv_sigma, w, lambda, eta, a, l){
   Bk_sol[[1]] <- Bk_old
   Bk_sol[[2]] <- list()
   for(k in 1:K){
-    Bk_sol[[2]][[k]] <- MCP_thresholding(Bk_sol[[1]][[k]]-eta*gradient_obj(n, w_new[[k]], Bk_sol[[1]][[k]], inv_sigma_old[[k]]),
+    Bk_sol[[2]][[k]] <- MCP_thresholding(Bk_sol[[1]][[k]] - eta*gradient_obj(n, w_new[[k]], Bk_sol[[1]][[k]], inv_sigma_old[[k]]),
                                          pi_new[k], lambda[k], eta, a)
   }
 
   t <- 2
-  while(all(diff_norm(Bk_sol[[t-1]], Bk_sol[[t]]) >= rep(1e-6,K))){
+  while(all(diff_norm(Bk_sol[[t-1]], Bk_sol[[t]]) >= rep(1e-6, K))){
     Bk_sol[[t+1]] <- list()
     for(k in 1:K){
-      Bk_sol[[t+1]][[k]] <- MCP_thresholding(Bk_sol[[t]][[k]]-eta*gradient_obj(n, w_new[[k]], Bk_sol[[t]][[k]], inv_sigma_old[[k]]),
+      Bk_sol[[t+1]][[k]] <- MCP_thresholding(Bk_sol[[t]][[k]] - eta*gradient_obj(n, w_new[[k]], Bk_sol[[t]][[k]], inv_sigma_old[[k]]),
                                              pi_new[k], lambda[k], eta, a)
     }
 
@@ -258,7 +258,7 @@ m_step_pi <- function(w, l){
   pi_new <- vector()
   sum_w <- sapply(w_new, sum)
   
-  pi_new <- (1/n) * sum_w
+  pi_new <- (1/n)*sum_w
   return(pi_new)
 }
 
@@ -372,7 +372,7 @@ m_step_sigma <- function(X, Y, Bk, w, l){
       sigma_sum[[k]] <- sigma_sum[[k]] + w_new[[k]][i] * 
         ((Y[i,]-t(Bk_new[[k]])%*%X[i,]) %*% t(Y[i,]-t(Bk_new[[k]])%*%X[i,]))
     }
-    sigma_new[[k]] <- (1/sum(w_new[[k]])) * sigma_sum[[k]]
+    sigma_new[[k]] <- (1/sum(w_new[[k]]))*sigma_sum[[k]]
   }
   return(sigma_new)
 }
@@ -396,11 +396,11 @@ total_diff_norm <- function(pi_, Bk, sigma, l){
   
   for(k in 1:K){
     pi_norm[k] <- (pi_new[k]-pi_old[k])^2
-    Bk_norm[k] <- sum((Bk_new[[k]]-Bk_old[[k]])^2) #same as Frobenius norm
-    sigma_norm[k] <- sum((sigma_new[[k]]-sigma_old[[k]])^2) #same as Frobenius norm
+    Bk_norm[k] <- sum((Bk_new[[k]]-Bk_old[[k]])^2) 
+    sigma_norm[k] <- sum((sigma_new[[k]]-sigma_old[[k]])^2)
   }
   
-  return(sqrt(sum(pi_norm,Bk_norm,sigma_norm)))
+  return(sqrt(sum(pi_norm, Bk_norm, sigma_norm)))
 }
 
 
