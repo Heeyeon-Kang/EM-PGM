@@ -26,7 +26,6 @@ source("./Functions/functions.R")
 
 mvFMR_SCAD_fixedK <- function(X, Y, n=nrow(X), P=(ncol(X)-1), m=ncol(Y), K, eta, a){
   
-  ### Fitting ###
   lambda_s <- c(1e-4, 5*1e-3, 10*1e-3, 15*1e-3, 20*1e-3, 25*1e-3,
                 30*1e-3, 35*1e-3, 40*1e-3, 45*1e-3, 50*1e-3, 55*1e-3,
                 60*1e-3, 65*1e-3, 70*1e-3, 75*1e-3, 80*1e-3, 85*1e-3,
