@@ -5,7 +5,7 @@
 
 This repository has the R-code to do the analyses and reproduce the figures and tables in Sections 5 and Section 6 of the manuscript and the supplementary material.
 
-All code was written in a laptop with R version 4.3.1 and run on a Linux Cluster with R version 4.1.2.
+All code was written in a laptop with R version 4.4.2 and run on a Linux Cluster with R version 4.1.2.
 To run the R-code, it is recommended to load the R project ***EM-PGM.Rproj***, as all paths are set relative to this directory.
 
 The repository consists of the following folders:
@@ -14,8 +14,8 @@ The repository consists of the following folders:
   * ***simulation_seed_number.R*** contains the seed numbers generating the data of simulations in Section 5.
   * ***simulation_data.R*** contains the functions generating the dataset using in Section 5.
   * ***diabetes_diagnosis.csv*** can be accessed from **Diabetes data** section in <http://hbiostat.org/data/>.
-  * ***.csv*** can be accessed from **hour** data in <https://www.kaggle.com/datasets/harbhajansingh21/bike-sharing-dataset>.
-  * ***diabetes_diagnosis_data.R*** and ***.R*** are the R-codes of the process of refining the raw data, ***diabetes_diagnosis.csv*** and ***.csv***, respectively.
+  * ***life_expectancy.csv*** can be accessed from <https://www.kaggle.com/datasets/lashagoch/life-expectancy-who-updated/data> with <https://www.who.int/data/gho/data/indicators/indicator-details/GHO/current-health-expenditure-(che)-as-percentage-of-gross-domestic-product-(gdp)-(-)>.
+  * ***diabetes_diagnosis_data.R*** and ***life_expectancy.R*** are the R-codes of the process of refining the raw data, ***diabetes_diagnosis.csv*** and ***life_expectancy.csv***, respectively.
  
 * Functions: R-code of all functions for running the EM-ADMM algorithm and R-code for fitting simulation data using each method;
   * ***functions.R*** is the R-code of all functions for running EM-ADMM algorithm.
