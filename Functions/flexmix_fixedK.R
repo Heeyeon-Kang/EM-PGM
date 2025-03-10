@@ -26,7 +26,7 @@
 # Y <- data_generate_5.1.1(seed_number_5.1.1[1], 500)$Y
 # cluster <- data_generate_5.1.1(seed_number_5.1.1[1], 500)$cluster
 # true <- data_generate_5.1.1(seed_number_5.1.1[1], 500)$true
-# result_flexmix <- flexmix_fit(X, Y, true, cluster, K=2){
+# result_flexmix <- flexmix_fit(X, Y, true, cluster, K=2)
 
 source("./Data/simulation_seed_number.R")
 source("./Data/simulation_data.R")
