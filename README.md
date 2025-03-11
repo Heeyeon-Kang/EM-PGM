@@ -26,9 +26,10 @@ The repository consists of the following folders:
 
 * Simulations: The results of simulation studies and real data analyses to reproduce the figures and tables presented in Section 5 and Section 6;
   * ***simulation_table.R*** contains the functions for calculating TPR, FPR, MSE, and predictive log-likelihood loss.
-  * ***diabetes_diagnosis.R*** and ***life_expectancy.R*** contain the R-codes for fitting and analyzing the data using mvFMR-MCP and generating Table 7 and Table 8 presented in Section 6.1 and Section 6.2.
-  * ***diabetes_diagnosis_kmeans.R*** and ***life_expectancy_kmeans.R*** contains the R-codes for applying k-means clustering method in diabetes dianosis data and life expectancy data.
   * ***s1_table.rda***, ***s2_table.rda***, and ***s3_table.rda*** are the rda files that contain the contents of Table 2, Table 4, and Table 6 in Section 5.1, Section 5.2, and Section 5.3, respectively.
-  * ***diabetes_diagnosis.rda*** and ***life_expectancy.rda*** are rda files containing the results of the analysis using mvFMR-MCP.
+  * ***diabetes_diagnosis.R*** and ***life_expectancy.R*** contain the R-codes for fitting and analyzing the data using mvFMR-MCP and generating Table 7 and Table 8 presented in Section 6.1 and Section 6.2.
+  * ***diabetes_diagnosis_result.rda*** and ***life_expectancy_result.rda*** are rda files containing the results after applying mvFMR-MCP.
+  * ***diabetes_diagnosis_kmeans.R*** and ***life_expectancy_kmeans.R*** contains the R-codes for applying k-means clustering method in diabetes dianosis data and life expectancy data.
+
 
     
