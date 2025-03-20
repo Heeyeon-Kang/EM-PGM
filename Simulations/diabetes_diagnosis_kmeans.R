@@ -5,27 +5,27 @@
 ####                        Author: Heeyeon Kang                          ####
 ####                      Supervisor: Sunyoung Shin                       ####
 ##############################################################################
-####     R-code of analyzing the result of the diabetes diagnosis data    ####
-####                      presented in Section 6.1.                       ####
+####             R-code for applying k-means clustering method            ####
+####       to the diabetes diagnosis data presented in Section 6.1.       ####
 ##############################################################################
 
-# The following R-code analyzes the results of the diabetes diagnosis data 
-# by using k-means clustering method.
+# The following R-code demonstrates how to implement k-means clustering method
+# to the diabetes diagnosis data presented in Section 6.1.
 
-# The R-code compares the results of clustering using mvFMR-MCP and 
-# k-means clustering method, when K is 2.
+# Since mvFMR-MCP of the EM-PGM algorithm estimated the optimal K to be 2, 
+# we applied k-means clustering method when K = 2.
 
-## Packages ##
+### Packages ###
 requiredPackages <- c("ggplot2")
 for(p in requiredPackages){
   if(!require(p, character.only=TRUE)) install.packages(p)
   library(p, character.only=TRUE)
 }
 
-## Data ##
+### Data ###
 source("./Data/diabetes_diagnosis_data.R")
 
-## Analysis ##
+### Analysis ###
 # k-means clustering method with K=2 #
 set.seed(2868)
 group <- kmeans(Y, centers=2)$cluster
