@@ -5,34 +5,36 @@
 ####                        Author: Heeyeon Kang                          ####
 ####                      Supervisor: Sunyoung Shin                       ####
 ##############################################################################
-####       R-code of fitting the data using the R-package "Flexmix"       ####
-####               presented in Section 5.1 and Section 5.2.              ####
+####  R-code for applying the R package "Flexmix" to the simulated data   ####
+####             with known K presented in Section 5.1 - 5.2.             ####
 ##############################################################################
 
-# The following R-code fits the simulation data using the R-package "Flexmix" 
-# presented in Section 5.1 and Section 5.2.
+# The following R-code demonstrates how to implement the R package "Flexmix" 
+# to the simulated data from Section 5.1 - 5.2.
 
-# When fitting using flexmix, there is a problem with cluster shifting 
-# compared to the true clusters, making it difficult to calculate 
-# the true parameters and MSE.
-# Thus, we apply flexmix assuming we know the true parameters, 
+# As a reference, we assumed that the number of components K was known 
+# in Section 5.1 - 5.2.
+
+# There is a problem with cluster shifting compared to the true clusters, 
+# making it difficult to calculate the true parameters and MSE.
+# Thus, we applied flexmix assuming we knew the true parameters, 
 # especially, true coefficient matrices, and clusters.
 
 ### Example ###
 # source("./Data/simulation_seed_number.R")
 # source("./Data/simulation_data.R")
-# source("./Functions/functions.R")
+# source("./Scripts/Functions/functions.R")
 # X <- data_generate_5.1.1(seed_number_5.1.1[1], 500)$X
 # Y <- data_generate_5.1.1(seed_number_5.1.1[1], 500)$Y
 # cluster <- data_generate_5.1.1(seed_number_5.1.1[1], 500)$cluster
 # true <- data_generate_5.1.1(seed_number_5.1.1[1], 500)$true
-# result_flexmix <- flexmix_fit(X, Y, true=true, cluster=cluster, K=2)
+# result_flexmix_fixedK <- flexmix_fixedK(X, Y, true=true, cluster=cluster, K=2)
 
 source("./Data/simulation_seed_number.R")
 source("./Data/simulation_data.R")
-source("./Functions/functions.R")
+source("./Scripts/Functions/functions.R")
 
-flexmix_fit <- function(X, Y, n=nrow(X), P=(ncol(X)-1), m=ncol(Y), true, cluster, K){
+flexmix_fixedK <- function(X, Y, n=nrow(X), P=(ncol(X)-1), m=ncol(Y), true, cluster, K){
 
   true_Bk <- true$Bk
   total_true_Bk <- matrix(as.vector(sapply(true$Bk, as.vector)), nrow=(P+1))
