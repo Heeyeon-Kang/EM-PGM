@@ -10,14 +10,18 @@ To run the R-code, it is recommended to load the R project ***EM-PGM.Rproj***, a
 
 The repository consists of the following folders:
 
-* Data: R-code for generating or refining the data used in Section 5 and Section 6;
+* Data: R-codes for generating or refining the data used in Section 5 and Section 6;
   * ***simulation_seed_number.R*** contains the seed numbers generating the data of simulations in Section 5.
   * ***simulation_data.R*** contains the functions generating the dataset using in Section 5.
   * ***diabetes_diagnosis.csv*** can be accessed from **Diabetes data** section in <http://hbiostat.org/data/>.
   * ***life_expectancy.csv*** can be accessed from <https://www.kaggle.com/datasets/lashagoch/life-expectancy-who-updated/data>, while additional relevant data is available from <https://www.who.int/data/gho/data/indicators/indicator-details/GHO/current-health-expenditure-(che)-as-percentage-of-gross-domestic-product-(gdp)-(-)>.
   * ***diabetes_diagnosis_data.R*** and ***life_expectancy_data.R*** are the R-codes of the process of refining the raw data, ***diabetes_diagnosis_data.csv*** and ***life_expectancy_data.csv***, respectively.
  
-* Scripts: R-code of all functions for running 'flexmix', 'oracle', 'mvFMR', 'mvFMR-LASSO', 'mvFMR-SCAD', and 'mvFMR-MCP' and R-code for implementing each method to simulation data;
+* Scripts
+  * Analysis: R-codes for implementing 'flexmix', 'oracle', 'mvFMR', 'mvFMR-LASSO', 'mvFMR-SCAD', and 'mvFMR-MCP' to simulation data;
+    * dfdfdf
+  * Functions: R-codes of functions to implement all methods;
+ 
   * ***functions.R*** is the R-code of all functions for running EM-PGM algorithm.
   * ***mvFMR.R***, ***mvFMR_LASSO.R***, ***mvFMR_SCAD.R***, and ***mvFMR_MCP.R*** contain the R-codes for fitting simulation data using mvFMR with their respective penalty functions presented in Section 5.3.
   * ***mvFMR_fixedK.R***, ***mvFMR_LASSO_fixedK.R***, ***mvFMR_SCAD_fixedK.R***, and ***mvFMR_MCP_fixedK.R*** contain the R-codes for fitting the data using mvFMR with their respective penalty functions presented in Section 5.1, Section 5.2, and Section 5.3, assuming K is known.
