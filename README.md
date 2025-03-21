@@ -30,11 +30,7 @@ The repository consists of the following folders:
     * ***simulation_summary_functions.R*** contains R-codes composed of functions for numerical presentation of simulation results.
  
 * Simulations: The results of simulation studies and real data analyses to reproduce the figures and tables presented in Section 5 and Section 6;
-  * ***simulation_table.R*** contains the functions for calculating TPR, FPR, MSE, and predictive log-likelihood loss.
-  * ***s1_table.rda***, ***s2_table.rda***, and ***s3_table.rda*** are the rda files that contain the contents of Table 2, Table 4, and Table 6 in Section 5.1, Section 5.2, and Section 5.3, respectively.
-  * ***diabetes_diagnosis.R*** and ***life_expectancy.R*** contain the R-codes for fitting and analyzing the data using mvFMR-MCP and generating Table 7 and Table 8 presented in Section 6.1 and Section 6.2.
-  * ***diabetes_diagnosis_result.rda*** and ***life_expectancy_result.rda*** are rda files containing the results after applying mvFMR-MCP.
-  * ***diabetes_diagnosis_kmeans.R*** and ***life_expectancy_kmeans.R*** contains the R-codes for applying k-means clustering method in diabetes dianosis data and life expectancy data.
-
-
+  * ***diabetes_diagnosis.R*** and ***life_expectancy.R*** contain R-codes for applying 'mvFMR-MCP' and 'the EM-PGM algorithm' to the diabetes diagnosis data and life expectancy data presented in Section 6.1 and 6.2, respectively.
+  * ***diabetes_diagnosis_kmeans.R*** and ***life_expectancy_kmeans.R*** contain R-codes for applying 'k-means clustering method' to the diabetes diagnosis data and life expectancy data presented in Section 6.1 and 6.2, respectively.
+  * ***simulation1.R***, ***simulation2.R***, and ***simulation3.R*** contains R-codes for implementing all methods on simulated data presented in Section 5.1 - 5.3, using parallel computing.
     
