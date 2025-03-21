@@ -39,6 +39,12 @@ The repository consists of the following folders:
   * Section 5.3: The '.rda' files containing the summarized results collected in Section 5.3 and R-code for reproducing Table 5;
     * ***Model 7*** and ***Model 8*** are folders that contain the summarized results of Model 7 and Model 8, respectively.
     * ***sim3_analysis.R*** contains R-code for reproducing Table 6 in Section 5.3 and ***Table 6.rda*** is the corresponding file.
+  * Section 6.1;
+    * ***diabetes_diagnosis_result.rda*** contains all results after fitting the data on 'mvFMR-MCP' with the EM-PGM algorithm.
+    * ***diabetes_diagnosis_analysis.R*** contains R-code for reproducing Table 7 and Figure 1 of the diabetes diagnosis data presented in Section 6.1.
+  * Section 6.2;
+    * ***life_expectancy_result.rda*** contains all results after fitting the data on 'mvFMR-MCP' with the EM-PGM algorithm.
+    * ***life_expectancy_analysis.R*** contains R-code for reproducing Table 8 and Figure 2 of the life expectancy data presented in Section 6.2.
 
 * Simulations: The results of simulation studies and real data analyses to reproduce the figures and tables presented in Section 5 and Section 6;
   * ***diabetes_diagnosis.R*** and ***life_expectancy.R*** contain R-codes for applying 'mvFMR-MCP' and 'the EM-PGM algorithm' to the diabetes diagnosis data and life expectancy data presented in Section 6.1 and 6.2, respectively.
