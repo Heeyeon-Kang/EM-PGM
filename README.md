@@ -17,7 +17,7 @@ The repository consists of the following folders:
   * ***life_expectancy.csv*** can be accessed from <https://www.kaggle.com/datasets/lashagoch/life-expectancy-who-updated/data>, while additional relevant data is available from <https://www.who.int/data/gho/data/indicators/indicator-details/GHO/current-health-expenditure-(che)-as-percentage-of-gross-domestic-product-(gdp)-(-)>.
   * ***diabetes_diagnosis_data.R*** and ***life_expectancy_data.R*** are the R-codes of the process of refining the raw data, ***diabetes_diagnosis_data.csv*** and ***life_expectancy_data.csv***, respectively.
  
-* Scripts
+* Scripts;
   * Analysis: R-codes for implementing 'flexmix', 'oracle', 'mvFMR', 'mvFMR-LASSO', 'mvFMR-SCAD', and 'mvFMR-MCP' to simulation data;
     * ***flexmix_fixedK.R*** contains R-code to fit the R-package "flexmix" to the simulated data presented in Section 5.1 - 5.2.
     * ***oracle_fixedK.R*** contains R-code to estimate the oracle estimator presented in Section 5.1 - 5.2.
@@ -26,13 +26,9 @@ The repository consists of the following folders:
     * ***mvFMR.R*** contains R-code for implementing 'mvFMR' to simulated data presented in Section 5.3.
     * ***PGM_mvFMR_LASSO.R***, ***PGM_mvFMR_SCAD.R***, ***PGM_mvFMR_MCP.R***, ***ADMM_mvFMR_LASSO.R***, ***ADMM_mvFMR_SCAD.R***, and ***ADMM_mvFMR_MCP.R*** are R-codes for implementing 'mvFMR' with their respective penalty functions(LASSO, SCAD, and MCP) and respective algorithms(the EM-PGM algorithm and the ADMM solver) assuming that the number of components K is unknown, which corresponds to the setting in Section 5.3.
   * Functions: R-codes of functions to implement all methods;
+    * ***functions.R*** contains R-codes composed of functions to perform all methods in 'Analysis'.
+    * ***simulation_summary_functions.R*** contains R-codes composed of functions for numerical presentation of simulation results.
  
-  * ***functions.R*** is the R-code of all functions for running EM-PGM algorithm.
-  * ***mvFMR.R***, ***mvFMR_LASSO.R***, ***mvFMR_SCAD.R***, and ***mvFMR_MCP.R*** contain the R-codes for fitting simulation data using mvFMR with their respective penalty functions presented in Section 5.3.
-  * ***mvFMR_fixedK.R***, ***mvFMR_LASSO_fixedK.R***, ***mvFMR_SCAD_fixedK.R***, and ***mvFMR_MCP_fixedK.R*** contain the R-codes for fitting the data using mvFMR with their respective penalty functions presented in Section 5.1, Section 5.2, and Section 5.3, assuming K is known.
-  * ***flexmix_fixedK.R*** contains the R-code for fitting the data using the R-package "Flexmix" presented in Section 5.1 and Section 5.2.
-  * ***oracle_fixedK.R*** contains the R-code to estimate the oracle estimator presented in Section 5.1 and Section 5.2 by fitting the data.
-
 * Simulations: The results of simulation studies and real data analyses to reproduce the figures and tables presented in Section 5 and Section 6;
   * ***simulation_table.R*** contains the functions for calculating TPR, FPR, MSE, and predictive log-likelihood loss.
   * ***s1_table.rda***, ***s2_table.rda***, and ***s3_table.rda*** are the rda files that contain the contents of Table 2, Table 4, and Table 6 in Section 5.1, Section 5.2, and Section 5.3, respectively.
