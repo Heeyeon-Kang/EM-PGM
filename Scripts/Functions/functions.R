@@ -60,7 +60,7 @@ PGM_mvFMR_LASSO <- function(pi_, Bk, inv_sigma, w, lambda, eta, l){
   K <- length(pi_new)
   n <- length(w_new[[1]])
   
-  # Initialization #
+  # Initialization
   Bk_sol <- list()
   Bk_sol[[1]] <- Bk_old
   
@@ -100,7 +100,7 @@ PGM_mvFMR_SCAD <- function(pi_, Bk, inv_sigma, w, lambda, eta, a, l){
   K <- length(pi_new)
   n <- length(w_new[[1]])
   
-  # Initialization #
+  # Initialization
   Bk_sol <- list()
   Bk_sol[[1]] <- Bk_old
   
@@ -140,7 +140,7 @@ PGM_mvFMR_MCP <- function(pi_, Bk, inv_sigma, w, lambda, eta, a, l){
   K <- length(pi_new)
   n <- length(w_new[[1]])
   
-  # Initialization #
+  # Initialization
   Bk_sol <- list()
   Bk_sol[[1]] <- Bk_old
   
@@ -211,7 +211,7 @@ ADMM_mvFMR_LASSO <- function(X, Y, pi_, Bk, sigma, w, e_abs, e_rel, lambda, rho,
   R <- list(list())     
   S <- list(list())    
   
-  # Initialization #
+  # Initialization
   Bk_sol[[1]] <- Bk[[l]]
   Ck[[1]] <- list()
   U1[[1]] <- list()
@@ -370,7 +370,7 @@ ADMM_mvFMR_SCAD <- function(X, Y, pi_, Bk, sigma, w, e_abs, e_rel, lambda, rho, 
   R <- list(list())     
   S <- list(list())    
   
-  # Initialization #
+  # Initialization
   Bk_sol[[1]] <- Bk[[l]]
   Ck[[1]] <- list()
   U1[[1]] <- list()
@@ -530,7 +530,7 @@ ADMM_mvFMR_MCP <- function(X, Y, pi_, Bk, sigma, w, e_abs, e_rel, lambda, rho, a
   R <- list(list())     
   S <- list(list())    
   
-  # Initialization #
+  # Initialization
   Bk_sol[[1]] <- Bk[[l]]
   Ck[[1]] <- list()
   U1[[1]] <- list()
@@ -923,8 +923,8 @@ total_diff_norm <- function(pi_, Bk, sigma, l){
   
   for(k in 1:K){
     pi_norm[k] <- (pi_new[k]-pi_old[k])^2
-    Bk_norm[k] <- sum((Bk_new[[k]]-Bk_old[[k]])^2)
-    sigma_norm[k] <- sum((sigma_new[[k]]-sigma_old[[k]])^2)
+    Bk_norm[k] <- sum((Bk_new[[k]]-Bk_old[[k]])^2) #same as Frobenius norm
+    sigma_norm[k] <- sum((sigma_new[[k]]-sigma_old[[k]])^2) #same as Frobenius norm
   }
   
   return(sqrt(sum(pi_norm,Bk_norm,sigma_norm)))
