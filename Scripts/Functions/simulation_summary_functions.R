@@ -210,7 +210,7 @@ MSE_no_penalty <- function(true, pred){
 
 floor_6 <- function(x) as.data.frame(trunc(x*10^5)/10^5)
 
-predictive_ll <- function(result, l, length){
+predictive_ll <- function(result, l, n){
   optimal <- result$optimal
   density <- result$density
   optimal_K <- result$K
