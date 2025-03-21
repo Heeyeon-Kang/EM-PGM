@@ -28,7 +28,18 @@ The repository consists of the following folders:
   * Functions: R-codes of functions to implement all methods;
     * ***functions.R*** contains R-codes composed of functions to perform all methods in 'Analysis'.
     * ***simulation_summary_functions.R*** contains R-codes composed of functions for numerical presentation of simulation results.
- 
+
+* Results;
+  * Section 5.1: The '.rda' files containing the summarized results collected in Section 5.1 and R-code for reproducing Table 2;
+    * ***Model 1***, ***Model 2***, and ***Model 3*** are folders that contain the summarized results of Model 1, Model 2, and Model 3, respectively.
+    * ***sim1_analysis.R*** contains R-code for reproducing Table 2 in Section 5.1 and ***Table 2.rda*** is the corresponding file.
+  * Section 5.2: The '.rda' files containing the summarized results collected in Section 5.2 and R-code for reproducing Table 4;
+    * ***Model 4***, ***Model 5***, and ***Model 6*** are folders that contain the summarized results of Model 4, Model 5, and Model 6, respectively.
+    * ***sim2_analysis.R*** contains R-code for reproducing Table 4 in Section 5.2 and ***Table 4.rda*** is the corresponding file.
+  * Section 5.3: The '.rda' files containing the summarized results collected in Section 5.3 and R-code for reproducing Table 5;
+    * ***Model 7*** and ***Model 8*** are folders that contain the summarized results of Model 7 and Model 8, respectively.
+    * ***sim3_analysis.R*** contains R-code for reproducing Table 6 in Section 5.3 and ***Table 6.rda*** is the corresponding file.
+
 * Simulations: The results of simulation studies and real data analyses to reproduce the figures and tables presented in Section 5 and Section 6;
   * ***diabetes_diagnosis.R*** and ***life_expectancy.R*** contain R-codes for applying 'mvFMR-MCP' and 'the EM-PGM algorithm' to the diabetes diagnosis data and life expectancy data presented in Section 6.1 and 6.2, respectively.
   * ***diabetes_diagnosis_kmeans.R*** and ***life_expectancy_kmeans.R*** contain R-codes for applying 'k-means clustering method' to the diabetes diagnosis data and life expectancy data presented in Section 6.1 and 6.2, respectively.
