@@ -44,7 +44,7 @@ The repository consists of the following folders:
     * ***diabetes_diagnosis_analysis.R*** contains R-code for reproducing Table 7 and Figure 1 of the diabetes diagnosis data presented in Section 6.1.
   * Section 6.2;
     * ***life_expectancy_result.rda*** contains all results after fitting the data on 'mvFMR-MCP' with the EM-PGM algorithm.
-    * ***life_expectancy_analysis.R*** contains R-code for reproducing Table 8 and Figure 2 of the life expectancy data presented in Section 6.2.
+    * ***life_expectancy_analysis.R*** contains R-code for reproducing Table 8 and Figure 2 of the age-specific mortality rates data presented in Section 6.2.
 
 * Simulations: The results of simulation studies and real data analyses to reproduce the figures and tables presented in Section 5 and Section 6;
   * ***diabetes_diagnosis.R*** and ***life_expectancy.R*** contain R-codes for applying 'mvFMR-MCP' and 'the EM-PGM algorithm' to the diabetes diagnosis data and life expectancy data presented in Section 6.1 and 6.2, respectively.
