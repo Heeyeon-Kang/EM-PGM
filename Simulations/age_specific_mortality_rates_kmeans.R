@@ -6,14 +6,16 @@
 ####                      Supervisor: Sunyoung Shin                       ####
 ##############################################################################
 ####             R-code for applying k-means clustering method            ####
-####         to the life expectancy data presented in Section 6.2.        ####
+####  to the age-specific mortality rates data presented in Section 6.2.  ####
 ##############################################################################
 
 # The following R-code demonstrates how to implement k-means clustering method
-# to the life expectancy data presented in Section 6.2.
+# to the age-specific mortality rates data presented in Section 6.2.
 
 # Since mvFMR-MCP of the EM-PGM algorithm estimated the optimal K to be 2, 
 # we applied k-means clustering method when K = 2.
+# Considering the scale difference between the responses, we applied scaling 
+# before performing k-means clustering.
 
 ### Packages ###
 requiredPackages <- c("ggplot2", "plotly")
@@ -23,12 +25,12 @@ for(p in requiredPackages){
 }
 
 ### Data ###
-source("./Data/life_expectancy_data.R")
+source("./Data/age_specific_mortality_rates_data.R")
 
 ### Analysis ###
 # k-means clustering method with K=2 #
 set.seed(2868)
-group <- kmeans(Y, centers=2)$cluster
+group <- kmeans(apply(Y, 2, scale), centers=2)$cluster
 
 dat_Y <- as.data.frame(cbind(Y, group=group))
 for(i in 1:nrow(Y)){
@@ -54,3 +56,5 @@ k_means_plot2 <- k_means_plot %>%
              camera=list(eye=list(x=1, y=-2, z=1))),
   legend=list(x=0.9, y=0.5, xanchor="left", yanchor="middle", font=list(size=14))) %>% 
   layout(margin=list(l=0, r=0, t=0, b=0))
+
+
