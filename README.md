@@ -13,8 +13,8 @@ The repository consists of the following folders:
 * Data: R-codes for generating or refining the data used in Section 5 and Section 6;
   * ***simulation_seed_number.R*** contains the seed numbers generating the data of simulations in Section 5.
   * ***simulation_data.R*** contains the functions generating the dataset using in Section 5.
-  * ***diabetes_diagnosis.csv*** can be accessed from **Diabetes data** section in <http://hbiostat.org/data/>.
-  * ***life_expectancy.csv*** can be accessed from <https://www.kaggle.com/datasets/lashagoch/life-expectancy-who-updated/data>, while additional relevant data is available from <https://www.who.int/data/gho/data/indicators/indicator-details/GHO/current-health-expenditure-(che)-as-percentage-of-gross-domestic-product-(gdp)-(-)>.
+  * ***diabetes_diagnosis_data.csv*** can be accessed from **Diabetes data** section in <http://hbiostat.org/data/>.
+  * ***age_specific_mortality_rates_data.csv*** can be accessed from <https://www.kaggle.com/datasets/lashagoch/life-expectancy-who-updated/data>, while additional relevant data is available from <https://www.who.int/data/gho/data/indicators/indicator-details/GHO/current-health-expenditure-(che)-as-percentage-of-gross-domestic-product-(gdp)-(-)>.
   * ***diabetes_diagnosis_data.R*** and ***age_specific_mortality_rates_data.R*** are the R-codes of the process of refining the raw data, ***diabetes_diagnosis_data.csv*** and ***age_specific_mortality_rates_data.csv***, respectively.
  
 * Scripts;
