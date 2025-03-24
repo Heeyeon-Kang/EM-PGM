@@ -1,24 +1,23 @@
-##############################################################################
-####              Penalized estimation for a finite mixture of            ####
-####                   multivariate regression models                     ####
-##############################################################################
-####                        Author: Heeyeon Kang                          ####
-####                      Supervisor: Sunyoung Shin                       ####
-##############################################################################
-####  R-code for applying the R package "Flexmix" to the simulated data   ####
-####             with known K presented in Section 5.1 - 5.2.             ####
-##############################################################################
+###################################################################################
+#### Penalized estimation in finite mixtures of multivariate regression models ####
+####                         via the EM-PGM algorithm                          ####
+###################################################################################
+####                           Author: Heeyeon Kang                            ####
+####                         Supervisor: Sunyoung Shin                         ####
+###################################################################################
+####    R-code for applying the R package "Flexmix" to the simulated data      ####
+####               with known K presented in Section 5.1 - 5.2.                ####
+###################################################################################
 
-# The following R-code demonstrates how to implement the R package "Flexmix" 
-# to the simulated data from Section 5.1 - 5.2.
+# The following R-code demonstrates how to implement the R package "Flexmix" to the
+# simulated data from Section 5.1 - 5.2.
 
-# As a reference, we assumed that the number of components K was known 
-# in Section 5.1 - 5.2.
+# As a reference, we assumed that the number of components K was known in Section 5.1 - 5.2.
 
-# There is a problem with cluster shifting compared to the true clusters, 
-# making it difficult to calculate the true parameters and MSE.
-# Thus, we applied flexmix assuming we knew the true parameters, 
-# especially, true coefficient matrices, and clusters.
+# There is a problem with cluster shifting compared to the true clusters, making it 
+# difficult to calculate the true parameters and MSE.
+# Thus, we applied flexmix assuming we knew the true parameters, especially, 
+# true coefficient matrices, and clusters.
 
 ### Example ###
 # source("./Data/simulation_seed_number.R")

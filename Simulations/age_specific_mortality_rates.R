@@ -1,17 +1,16 @@
-##############################################################################
-####              Penalized estimation for a finite mixture of            ####
-####                   multivariate regression models                     ####
-##############################################################################
-####                        Author: Heeyeon Kang                          ####
-####                      Supervisor: Sunyoung Shin                       ####
-##############################################################################
-####                    R-code for applying mvFMR-MCP                     #### 
-#### to the age-specific mortality rates data using the EM-PGM algorithm  ####
-####                      presented in Section 6.2.                       ####
-##############################################################################
+###################################################################################
+#### Penalized estimation in finite mixtures of multivariate regression models ####
+####                         via the EM-PGM algorithm                          ####
+###################################################################################
+####                           Author: Heeyeon Kang                            ####
+####                         Supervisor: Sunyoung Shin                         ####
+###################################################################################
+####   R-code for applying mvFMR-MCP to the age-specific mortality rates data  #### 
+####            using the EM-PGM algorithm presented in Section 6.2.           ####
+###################################################################################
 
-# The following R-code demonstrates how to implement mvFMR-MCP using the EM-PGM 
-# algorithm to the age-specific mortality rates data presented in Section 6.2.
+# The following R-code demonstrates how to implement mvFMR-MCP using the EM-PGM algorithm 
+# to the age-specific mortality rates data presented in Section 6.2.
 
 # But, it can be analyzed by using the other methods (e.g., mvFMR-LASSO, mvFMR-SCAD).
 

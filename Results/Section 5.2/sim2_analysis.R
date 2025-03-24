@@ -1,12 +1,12 @@
-##############################################################################
-####              Penalized estimation for a finite mixture of            ####
-####                   multivariate regression models                     ####
-##############################################################################
-####                        Author: Heeyeon Kang                          ####
-####                      Supervisor: Sunyoung Shin                       ####
-##############################################################################
-####            R-code for reproducing Table 4 in Section 5.2.            ####
-##############################################################################
+###################################################################################
+#### Penalized estimation in finite mixtures of multivariate regression models ####
+####                         via the EM-PGM algorithm                          ####
+###################################################################################
+####                           Author: Heeyeon Kang                            ####
+####                         Supervisor: Sunyoung Shin                         ####
+###################################################################################
+####              R-code for reproducing Table 4 in Section 5.2.               ####
+###################################################################################
 
 # The following R-code contains functions for calculating TPR, FPR, MSE.
 
@@ -67,7 +67,7 @@ FPR_mvFMR_1000 <- sapply(sim2_mod4_mvFMR_result$n1000$optimal, function(x) FPR_n
 MSE_mvFMR_500 <- as.data.frame(t(sapply(sim2_mod4_mvFMR_result$n500$optimal, 
                                         function(x) MSE_no_penalty(true, x))))
 names(MSE_mvFMR_500) <- c("pi", "Bk", "sigma")
-MSE_mvFMR_1000 <- as.data.frame(t(sapply(sim2_mod4_mvFMR_result$n500$optimal, 
+MSE_mvFMR_1000 <- as.data.frame(t(sapply(sim2_mod4_mvFMR_result$n1000$optimal, 
                                          function(x) MSE_no_penalty(true, x))))
 names(MSE_mvFMR_1000) <- c("pi", "Bk", "sigma")
 
@@ -204,7 +204,7 @@ model4_table$n500$mean$MSE_B_k <- c(mean(MSE_flexmix_500$Bk), mean(MSE_oracle_50
                                     mean(MSE_ADMM_mvFMR_SCAD_500$Bk), mean(MSE_EM_PGM_mvFMR_MCP_500$Bk),
                                     mean(MSE_ADMM_mvFMR_MCP_500$Bk))
 model4_table$n500$mean$MSE_sigma_k <- c(mean(MSE_flexmix_500$sigma), mean(MSE_oracle_500$sigma), 
-                                        mean(MSE_mvFMR_500$Bk), mean(MSE_EM_PGM_mvFMR_LASSO_500$sigma),
+                                        mean(MSE_mvFMR_500$sigma), mean(MSE_EM_PGM_mvFMR_LASSO_500$sigma),
                                         mean(MSE_ADMM_mvFMR_LASSO_500$sigma), mean(MSE_EM_PGM_mvFMR_SCAD_500$sigma),
                                         mean(MSE_ADMM_mvFMR_SCAD_500$sigma), mean(MSE_EM_PGM_mvFMR_MCP_500$sigma),
                                         mean(MSE_ADMM_mvFMR_MCP_500$sigma))
@@ -227,7 +227,7 @@ model4_table$n500$sd$MSE_B_k <- c(sd(MSE_flexmix_500$Bk), sd(MSE_oracle_500$Bk),
                                   sd(MSE_ADMM_mvFMR_SCAD_500$Bk), sd(MSE_EM_PGM_mvFMR_MCP_500$Bk),
                                   sd(MSE_ADMM_mvFMR_MCP_500$Bk))
 model4_table$n500$sd$MSE_sigma_k <- c(sd(MSE_flexmix_500$sigma), sd(MSE_oracle_500$sigma), 
-                                      sd(MSE_mvFMR_500$Bk), sd(MSE_EM_PGM_mvFMR_LASSO_500$sigma),
+                                      sd(MSE_mvFMR_500$sigma), sd(MSE_EM_PGM_mvFMR_LASSO_500$sigma),
                                       sd(MSE_ADMM_mvFMR_LASSO_500$sigma), sd(MSE_EM_PGM_mvFMR_SCAD_500$sigma),
                                       sd(MSE_ADMM_mvFMR_SCAD_500$sigma), sd(MSE_EM_PGM_mvFMR_MCP_500$sigma),
                                       sd(MSE_ADMM_mvFMR_MCP_500$sigma))
@@ -250,7 +250,7 @@ model4_table$n1000$mean$MSE_B_k <- c(mean(MSE_flexmix_1000$Bk), mean(MSE_oracle_
                                      mean(MSE_ADMM_mvFMR_SCAD_1000$Bk), mean(MSE_EM_PGM_mvFMR_MCP_1000$Bk),
                                      mean(MSE_ADMM_mvFMR_MCP_1000$Bk))
 model4_table$n1000$mean$MSE_sigma_k <- c(mean(MSE_flexmix_1000$sigma), mean(MSE_oracle_1000$sigma), 
-                                         mean(MSE_mvFMR_1000$Bk), mean(MSE_EM_PGM_mvFMR_LASSO_1000$sigma),
+                                         mean(MSE_mvFMR_1000$sigma), mean(MSE_EM_PGM_mvFMR_LASSO_1000$sigma),
                                          mean(MSE_ADMM_mvFMR_LASSO_1000$sigma), mean(MSE_EM_PGM_mvFMR_SCAD_1000$sigma),
                                          mean(MSE_ADMM_mvFMR_SCAD_1000$sigma), mean(MSE_EM_PGM_mvFMR_MCP_1000$sigma),
                                          mean(MSE_ADMM_mvFMR_MCP_1000$sigma))
@@ -273,7 +273,7 @@ model4_table$n1000$sd$MSE_B_k <- c(sd(MSE_flexmix_1000$Bk), sd(MSE_oracle_1000$B
                                    sd(MSE_ADMM_mvFMR_SCAD_1000$Bk), sd(MSE_EM_PGM_mvFMR_MCP_1000$Bk),
                                    sd(MSE_ADMM_mvFMR_MCP_1000$Bk))
 model4_table$n1000$sd$MSE_sigma_k <- c(sd(MSE_flexmix_1000$sigma), sd(MSE_oracle_1000$sigma), 
-                                       sd(MSE_mvFMR_1000$Bk), sd(MSE_EM_PGM_mvFMR_LASSO_1000$sigma),
+                                       sd(MSE_mvFMR_1000$sigma), sd(MSE_EM_PGM_mvFMR_LASSO_1000$sigma),
                                        sd(MSE_ADMM_mvFMR_LASSO_1000$sigma), sd(MSE_EM_PGM_mvFMR_SCAD_1000$sigma),
                                        sd(MSE_ADMM_mvFMR_SCAD_1000$sigma), sd(MSE_EM_PGM_mvFMR_MCP_1000$sigma),
                                        sd(MSE_ADMM_mvFMR_MCP_1000$sigma))
@@ -327,7 +327,7 @@ FPR_mvFMR_1000 <- sapply(sim2_mod5_mvFMR_result$n1000$optimal, function(x) FPR_n
 MSE_mvFMR_500 <- as.data.frame(t(sapply(sim2_mod5_mvFMR_result$n500$optimal, 
                                         function(x) MSE_no_penalty(true, x))))
 names(MSE_mvFMR_500) <- c("pi", "Bk", "sigma")
-MSE_mvFMR_1000 <- as.data.frame(t(sapply(sim2_mod5_mvFMR_result$n500$optimal, 
+MSE_mvFMR_1000 <- as.data.frame(t(sapply(sim2_mod5_mvFMR_result$n1000$optimal, 
                                          function(x) MSE_no_penalty(true, x))))
 names(MSE_mvFMR_1000) <- c("pi", "Bk", "sigma")
 
@@ -464,7 +464,7 @@ model5_table$n500$mean$MSE_B_k <- c(mean(MSE_flexmix_500$Bk), mean(MSE_oracle_50
                                     mean(MSE_ADMM_mvFMR_SCAD_500$Bk), mean(MSE_EM_PGM_mvFMR_MCP_500$Bk),
                                     mean(MSE_ADMM_mvFMR_MCP_500$Bk))
 model5_table$n500$mean$MSE_sigma_k <- c(mean(MSE_flexmix_500$sigma), mean(MSE_oracle_500$sigma), 
-                                        mean(MSE_mvFMR_500$Bk), mean(MSE_EM_PGM_mvFMR_LASSO_500$sigma),
+                                        mean(MSE_mvFMR_500$sigma), mean(MSE_EM_PGM_mvFMR_LASSO_500$sigma),
                                         mean(MSE_ADMM_mvFMR_LASSO_500$sigma), mean(MSE_EM_PGM_mvFMR_SCAD_500$sigma),
                                         mean(MSE_ADMM_mvFMR_SCAD_500$sigma), mean(MSE_EM_PGM_mvFMR_MCP_500$sigma),
                                         mean(MSE_ADMM_mvFMR_MCP_500$sigma))
@@ -487,7 +487,7 @@ model5_table$n500$sd$MSE_B_k <- c(sd(MSE_flexmix_500$Bk), sd(MSE_oracle_500$Bk),
                                   sd(MSE_ADMM_mvFMR_SCAD_500$Bk), sd(MSE_EM_PGM_mvFMR_MCP_500$Bk),
                                   sd(MSE_ADMM_mvFMR_MCP_500$Bk))
 model5_table$n500$sd$MSE_sigma_k <- c(sd(MSE_flexmix_500$sigma), sd(MSE_oracle_500$sigma), 
-                                      sd(MSE_mvFMR_500$Bk), sd(MSE_EM_PGM_mvFMR_LASSO_500$sigma),
+                                      sd(MSE_mvFMR_500$sigma), sd(MSE_EM_PGM_mvFMR_LASSO_500$sigma),
                                       sd(MSE_ADMM_mvFMR_LASSO_500$sigma), sd(MSE_EM_PGM_mvFMR_SCAD_500$sigma),
                                       sd(MSE_ADMM_mvFMR_SCAD_500$sigma), sd(MSE_EM_PGM_mvFMR_MCP_500$sigma),
                                       sd(MSE_ADMM_mvFMR_MCP_500$sigma))
@@ -510,7 +510,7 @@ model5_table$n1000$mean$MSE_B_k <- c(mean(MSE_flexmix_1000$Bk), mean(MSE_oracle_
                                      mean(MSE_ADMM_mvFMR_SCAD_1000$Bk), mean(MSE_EM_PGM_mvFMR_MCP_1000$Bk),
                                      mean(MSE_ADMM_mvFMR_MCP_1000$Bk))
 model5_table$n1000$mean$MSE_sigma_k <- c(mean(MSE_flexmix_1000$sigma), mean(MSE_oracle_1000$sigma), 
-                                         mean(MSE_mvFMR_1000$Bk), mean(MSE_EM_PGM_mvFMR_LASSO_1000$sigma),
+                                         mean(MSE_mvFMR_1000$sigma), mean(MSE_EM_PGM_mvFMR_LASSO_1000$sigma),
                                          mean(MSE_ADMM_mvFMR_LASSO_1000$sigma), mean(MSE_EM_PGM_mvFMR_SCAD_1000$sigma),
                                          mean(MSE_ADMM_mvFMR_SCAD_1000$sigma), mean(MSE_EM_PGM_mvFMR_MCP_1000$sigma),
                                          mean(MSE_ADMM_mvFMR_MCP_1000$sigma))
@@ -533,7 +533,7 @@ model5_table$n1000$sd$MSE_B_k <- c(sd(MSE_flexmix_1000$Bk), sd(MSE_oracle_1000$B
                                    sd(MSE_ADMM_mvFMR_SCAD_1000$Bk), sd(MSE_EM_PGM_mvFMR_MCP_1000$Bk),
                                    sd(MSE_ADMM_mvFMR_MCP_1000$Bk))
 model5_table$n1000$sd$MSE_sigma_k <- c(sd(MSE_flexmix_1000$sigma), sd(MSE_oracle_1000$sigma), 
-                                       sd(MSE_mvFMR_1000$Bk), sd(MSE_EM_PGM_mvFMR_LASSO_1000$sigma),
+                                       sd(MSE_mvFMR_1000$sigma), sd(MSE_EM_PGM_mvFMR_LASSO_1000$sigma),
                                        sd(MSE_ADMM_mvFMR_LASSO_1000$sigma), sd(MSE_EM_PGM_mvFMR_SCAD_1000$sigma),
                                        sd(MSE_ADMM_mvFMR_SCAD_1000$sigma), sd(MSE_EM_PGM_mvFMR_MCP_1000$sigma),
                                        sd(MSE_ADMM_mvFMR_MCP_1000$sigma))
@@ -587,7 +587,7 @@ FPR_mvFMR_1000 <- sapply(sim2_mod6_mvFMR_result$n1000$optimal, function(x) FPR_n
 MSE_mvFMR_500 <- as.data.frame(t(sapply(sim2_mod6_mvFMR_result$n500$optimal, 
                                         function(x) MSE_no_penalty(true, x))))
 names(MSE_mvFMR_500) <- c("pi", "Bk", "sigma")
-MSE_mvFMR_1000 <- as.data.frame(t(sapply(sim2_mod6_mvFMR_result$n500$optimal, 
+MSE_mvFMR_1000 <- as.data.frame(t(sapply(sim2_mod6_mvFMR_result$n1000$optimal, 
                                          function(x) MSE_no_penalty(true, x))))
 names(MSE_mvFMR_1000) <- c("pi", "Bk", "sigma")
 
@@ -724,7 +724,7 @@ model6_table$n500$mean$MSE_B_k <- c(mean(MSE_flexmix_500$Bk), mean(MSE_oracle_50
                                     mean(MSE_ADMM_mvFMR_SCAD_500$Bk), mean(MSE_EM_PGM_mvFMR_MCP_500$Bk),
                                     mean(MSE_ADMM_mvFMR_MCP_500$Bk))
 model6_table$n500$mean$MSE_sigma_k <- c(mean(MSE_flexmix_500$sigma), mean(MSE_oracle_500$sigma), 
-                                        mean(MSE_mvFMR_500$Bk), mean(MSE_EM_PGM_mvFMR_LASSO_500$sigma),
+                                        mean(MSE_mvFMR_500$sigma), mean(MSE_EM_PGM_mvFMR_LASSO_500$sigma),
                                         mean(MSE_ADMM_mvFMR_LASSO_500$sigma), mean(MSE_EM_PGM_mvFMR_SCAD_500$sigma),
                                         mean(MSE_ADMM_mvFMR_SCAD_500$sigma), mean(MSE_EM_PGM_mvFMR_MCP_500$sigma),
                                         mean(MSE_ADMM_mvFMR_MCP_500$sigma))
@@ -747,7 +747,7 @@ model6_table$n500$sd$MSE_B_k <- c(sd(MSE_flexmix_500$Bk), sd(MSE_oracle_500$Bk),
                                   sd(MSE_ADMM_mvFMR_SCAD_500$Bk), sd(MSE_EM_PGM_mvFMR_MCP_500$Bk),
                                   sd(MSE_ADMM_mvFMR_MCP_500$Bk))
 model6_table$n500$sd$MSE_sigma_k <- c(sd(MSE_flexmix_500$sigma), sd(MSE_oracle_500$sigma), 
-                                      sd(MSE_mvFMR_500$Bk), sd(MSE_EM_PGM_mvFMR_LASSO_500$sigma),
+                                      sd(MSE_mvFMR_500$sigma), sd(MSE_EM_PGM_mvFMR_LASSO_500$sigma),
                                       sd(MSE_ADMM_mvFMR_LASSO_500$sigma), sd(MSE_EM_PGM_mvFMR_SCAD_500$sigma),
                                       sd(MSE_ADMM_mvFMR_SCAD_500$sigma), sd(MSE_EM_PGM_mvFMR_MCP_500$sigma),
                                       sd(MSE_ADMM_mvFMR_MCP_500$sigma))
@@ -770,7 +770,7 @@ model6_table$n1000$mean$MSE_B_k <- c(mean(MSE_flexmix_1000$Bk), mean(MSE_oracle_
                                      mean(MSE_ADMM_mvFMR_SCAD_1000$Bk), mean(MSE_EM_PGM_mvFMR_MCP_1000$Bk),
                                      mean(MSE_ADMM_mvFMR_MCP_1000$Bk))
 model6_table$n1000$mean$MSE_sigma_k <- c(mean(MSE_flexmix_1000$sigma), mean(MSE_oracle_1000$sigma), 
-                                         mean(MSE_mvFMR_1000$Bk), mean(MSE_EM_PGM_mvFMR_LASSO_1000$sigma),
+                                         mean(MSE_mvFMR_1000$sigma), mean(MSE_EM_PGM_mvFMR_LASSO_1000$sigma),
                                          mean(MSE_ADMM_mvFMR_LASSO_1000$sigma), mean(MSE_EM_PGM_mvFMR_SCAD_1000$sigma),
                                          mean(MSE_ADMM_mvFMR_SCAD_1000$sigma), mean(MSE_EM_PGM_mvFMR_MCP_1000$sigma),
                                          mean(MSE_ADMM_mvFMR_MCP_1000$sigma))
@@ -793,7 +793,7 @@ model6_table$n1000$sd$MSE_B_k <- c(sd(MSE_flexmix_1000$Bk), sd(MSE_oracle_1000$B
                                    sd(MSE_ADMM_mvFMR_SCAD_1000$Bk), sd(MSE_EM_PGM_mvFMR_MCP_1000$Bk),
                                    sd(MSE_ADMM_mvFMR_MCP_1000$Bk))
 model6_table$n1000$sd$MSE_sigma_k <- c(sd(MSE_flexmix_1000$sigma), sd(MSE_oracle_1000$sigma), 
-                                       sd(MSE_mvFMR_1000$Bk), sd(MSE_EM_PGM_mvFMR_LASSO_1000$sigma),
+                                       sd(MSE_mvFMR_1000$sigma), sd(MSE_EM_PGM_mvFMR_LASSO_1000$sigma),
                                        sd(MSE_ADMM_mvFMR_LASSO_1000$sigma), sd(MSE_EM_PGM_mvFMR_SCAD_1000$sigma),
                                        sd(MSE_ADMM_mvFMR_SCAD_1000$sigma), sd(MSE_EM_PGM_mvFMR_MCP_1000$sigma),
                                        sd(MSE_ADMM_mvFMR_MCP_1000$sigma))

@@ -1,19 +1,18 @@
-##############################################################################
-####              Penalized estimation for a finite mixture of            ####
-####                   multivariate regression models                     ####
-##############################################################################
-####                        Author: Heeyeon Kang                          ####
-####                      Supervisor: Sunyoung Shin                       ####
-##############################################################################
-####          R-codes to fit the simulation data in Section 5.3.          ####
-##############################################################################
+###################################################################################
+#### Penalized estimation in finite mixtures of multivariate regression models ####
+####                         via the EM-PGM algorithm                          ####
+###################################################################################
+####                           Author: Heeyeon Kang                            ####
+####                         Supervisor: Sunyoung Shin                         ####
+###################################################################################
+####            R-codes to fit the simulation data in Section 5.3.             ####
+###################################################################################
 
-# The following R-code fits the simulation data presented in Section 5.3
-# using parallel computing.
+# The following R-code fits the simulation data presented in Section 5.3 using parallel computing.
 
 # We performed 500 simulated trials using parallel computing with 50 cores.
-# The following R-codes are designed to automatically adjust and use a smaller 
-# number of cores based on the available cores of the user's computer.
+# The following R-codes are designed to automatically adjust and use a smaller number
+# of cores based on the available cores of the user's computer.
 
 
 ### Packages ###

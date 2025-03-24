@@ -1,16 +1,16 @@
-##############################################################################
-####              Penalized estimation for a finite mixture of            ####
-####                   multivariate regression models                     ####
-##############################################################################
-####                        Author: Heeyeon Kang                          ####
-####                      Supervisor: Sunyoung Shin                       ####
-##############################################################################
-####        R-code for applying the methods to the simulated data.        ####
-##############################################################################
+###################################################################################
+#### Penalized estimation in finite mixtures of multivariate regression models ####
+####                         via the EM-PGM algorithm                          ####
+###################################################################################
+####                           Author: Heeyeon Kang                            ####
+####                         Supervisor: Sunyoung Shin                         ####
+###################################################################################
+####          R-code for applying the methods to the simulated data.           ####
+###################################################################################
 
 # The following R-code includes all the necessary functions to apply methods 
-# (e.g., Flexmix, Oracle, mvFMR, mvFMR-L, mvFMR-S, and mvFMR-M) to the simulated 
-# data and reproduce all the results presented in Section 5. 
+# (e.g., Flexmix, Oracle, mvFMR, mvFMR-L, mvFMR-S, and mvFMR-M) to the simulated data 
+# and reproduce all the results presented in Section 5. 
 
 
 ### Packages ###

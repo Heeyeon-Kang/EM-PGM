@@ -1,19 +1,18 @@
-##############################################################################
-####              Penalized estimation for a finite mixture of            ####
-####                   multivariate regression models                     ####
-##############################################################################
-####                        Author: Heeyeon Kang                          ####
-####                      Supervisor: Sunyoung Shin                       ####
-##############################################################################
-####        R-code for applying mvFMR-MCP to the simulated data         ####
-####           using the ADMM solver presented in Section 5.3.            ####
-##############################################################################
+###################################################################################
+#### Penalized estimation in finite mixtures of multivariate regression models ####
+####                         via the EM-PGM algorithm                          ####
+###################################################################################
+####                           Author: Heeyeon Kang                            ####
+####                         Supervisor: Sunyoung Shin                         ####
+###################################################################################
+####           R-code for applying mvFMR-MCP to the simulated data             ####
+####              using the ADMM solver presented in Section 5.3.              ####
+###################################################################################
 
-# The following R-code demonstrates how to implement mvFMR-MCP 
-# using the ADMM solver to the simulated data from Section 5.3.
+# The following R-code demonstrates how to implement mvFMR-MCP using the ADMM solver 
+# to the simulated data from Section 5.3.
 
-# As a reference, we assumed that the number of components K was unknown 
-# in Section 5.3.
+# As a reference, we assumed that the number of components K was unknown in Section 5.3.
 
 ### Example ###
 # source("./Data/simulation_seed_number.R")

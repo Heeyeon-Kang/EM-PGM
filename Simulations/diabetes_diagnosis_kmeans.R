@@ -1,13 +1,13 @@
-##############################################################################
-####              Penalized estimation for a finite mixture of            ####
-####                   multivariate regression models                     ####
-##############################################################################
-####                        Author: Heeyeon Kang                          ####
-####                      Supervisor: Sunyoung Shin                       ####
-##############################################################################
-####             R-code for applying k-means clustering method            ####
-####       to the diabetes diagnosis data presented in Section 6.1.       ####
-##############################################################################
+###################################################################################
+#### Penalized estimation in finite mixtures of multivariate regression models ####
+####                         via the EM-PGM algorithm                          ####
+###################################################################################
+####                           Author: Heeyeon Kang                            ####
+####                         Supervisor: Sunyoung Shin                         ####
+###################################################################################
+####               R-code for applying k-means clustering method               ####
+####         to the diabetes diagnosis data presented in Section 6.1.          ####
+###################################################################################
 
 # The following R-code demonstrates how to implement k-means clustering method
 # to the diabetes diagnosis data presented in Section 6.1.
@@ -28,7 +28,7 @@ source("./Data/diabetes_diagnosis_data.R")
 ### Analysis ###
 # k-means clustering method with K=2 #
 set.seed(2868)
-group <- kmeans(Y, centers=2)$cluster
+group <- kmeans(apply(Y, 2, scale), centers=2)$cluster
 
 dat_Y <- as.data.frame(cbind(Y, group=group))
 for(i in 1:nrow(Y)){

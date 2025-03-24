@@ -1,19 +1,18 @@
-##############################################################################
-####              Penalized estimation for a finite mixture of            ####
-####                   multivariate regression models                     ####
-##############################################################################
-####                        Author: Heeyeon Kang                          ####
-####                      Supervisor: Sunyoung Shin                       ####
-##############################################################################
-####  R-code for applying mvFMR-LASSO to the simulated data with known K  ####
-####      using the EM-PGM algorithm presented in Section 5.1 - 5.2.      ####
-##############################################################################
+###################################################################################
+#### Penalized estimation in finite mixtures of multivariate regression models ####
+####                         via the EM-PGM algorithm                          ####
+###################################################################################
+####                           Author: Heeyeon Kang                            ####
+####                         Supervisor: Sunyoung Shin                         ####
+###################################################################################
+####    R-code for applying mvFMR-LASSO to the simulated data with known K     ####
+####        using the EM-PGM algorithm presented in Section 5.1 - 5.2.         ####
+###################################################################################
 
-# The following R-code demonstrates how to implement mvFMR-LASSO 
-# using the EM-PGM algorithm to the simulated data from Section 5.1 - 5.2.
+# The following R-code demonstrates how to implement mvFMR-LASSO using the EM-PGM algorithm 
+# to the simulated data from Section 5.1 - 5.2.
 
-# As a reference, we assumed that the number of components K was known 
-# in Section 5.1 - 5.2.
+# As a reference, we assumed that the number of components K was known in Section 5.1 - 5.2.
 
 ### Example ###
 # source("./Data/simulation_seed_number.R")

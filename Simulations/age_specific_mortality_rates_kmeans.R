@@ -1,13 +1,13 @@
-##############################################################################
-####              Penalized estimation for a finite mixture of            ####
-####                   multivariate regression models                     ####
-##############################################################################
-####                        Author: Heeyeon Kang                          ####
-####                      Supervisor: Sunyoung Shin                       ####
-##############################################################################
-####             R-code for applying k-means clustering method            ####
-####  to the age-specific mortality rates data presented in Section 6.2.  ####
-##############################################################################
+###################################################################################
+#### Penalized estimation in finite mixtures of multivariate regression models ####
+####                         via the EM-PGM algorithm                          ####
+###################################################################################
+####                           Author: Heeyeon Kang                            ####
+####                         Supervisor: Sunyoung Shin                         ####
+###################################################################################
+####               R-code for applying k-means clustering method               ####
+####    to the age-specific mortality rates data presented in Section 6.2.     ####
+###################################################################################
 
 # The following R-code demonstrates how to implement k-means clustering method
 # to the age-specific mortality rates data presented in Section 6.2.

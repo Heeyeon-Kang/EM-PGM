@@ -1,15 +1,15 @@
-##############################################################################
-####              Penalized estimation for a finite mixture of            ####
-####                   multivariate regression models                     ####
-##############################################################################
-####                        Author: Heeyeon Kang                          ####
-####                      Supervisor: Sunyoung Shin                       ####
-##############################################################################
-####       R-code for numerical presentation of simulation results.       ####
-##############################################################################
+###################################################################################
+#### Penalized estimation in finite mixtures of multivariate regression models ####
+####                         via the EM-PGM algorithm                          ####
+###################################################################################
+####                           Author: Heeyeon Kang                            ####
+####                         Supervisor: Sunyoung Shin                         ####
+###################################################################################
+####         R-code for numerical presentation of simulation results.          ####
+###################################################################################
 
-# The following R-code includes functions to numerically present the results 
-# of the simulations in Section 5.1 - 5.3.
+# The following R-code includes functions to numerically present the results of the 
+# simulations in Section 5.1 - 5.3.
 
 
 ### Packages ###

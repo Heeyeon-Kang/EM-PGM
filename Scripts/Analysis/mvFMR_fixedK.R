@@ -5,12 +5,12 @@
 ####                           Author: Heeyeon Kang                            ####
 ####                         Supervisor: Sunyoung Shin                         ####
 ###################################################################################
-####      R-code of estimating the oracle estimator to the simulated data      ####
-####               with known K presented in Section 5.1 - 5.2.                ####
+####       R-code for applying mvFMR to the simulated data with known K        ####
+####                     presented in Section 5.1 - 5.2.                       ####
 ###################################################################################
 
-# The following R-code demonstrates how to implement finding oracle estimator to the 
-# simulated data from Section 5.1 - 5.2.
+# The following R-code demonstrates how to implement mvFMR to the simulated data 
+# from Section 5.1 - 5.2.
 
 # As a reference, we assumed that the number of components K was known in Section 5.1 - 5.2.
 
@@ -20,16 +20,13 @@
 # source("./Scripts/Functions/functions.R")
 # X <- data_generate_5.1.1(seed_number_5.1.1[1], 500)$X
 # Y <- data_generate_5.1.1(seed_number_5.1.1[1], 500)$Y
-# true <- data_generate_5.1.1(seed_number_5.1.1[1], 500)$true
-# true_Bk <- true$Bk
-# result_oracle_fixedK <- mvFMR_oracle_fixedK(X, Y, K=2, true_B=true_Bk)
+# result_mvFMR_fixedK <- mvFMR_fixedK(X, Y, K=2)
 
 source("./Data/simulation_seed_number.R")
 source("./Data/simulation_data.R")
 source("./Scripts/Functions/functions.R")
 
-mvFMR_oracle_fixedK <- function(X, Y, n=nrow(X), P=(ncol(X)-1), m=ncol(Y), K, true_B, maxiter=100){
-  
+mvFMR_fixedK <- function(X, Y, n=nrow(X), P=(ncol(X)-1), m=ncol(Y), K, maxiter=100){
   try({  
     theta_diff <- vector()
     density <- list(list())
@@ -37,9 +34,7 @@ mvFMR_oracle_fixedK <- function(X, Y, n=nrow(X), P=(ncol(X)-1), m=ncol(Y), K, tr
     Bk <- list(list())
     sigma <- list(list())
     inv_sigma <- list(list())
-    pi_ <- list(vector(length=K))
-    optimal_w <- list()
-    optimal_density <- list()
+    pi_ <- list(vector())
     
     # Initialization #
     Bk_array <- array(rep(0, (P+1)*m*K), c(P+1, m, K))
@@ -61,7 +56,7 @@ mvFMR_oracle_fixedK <- function(X, Y, n=nrow(X), P=(ncol(X)-1), m=ncol(Y), K, tr
     
     sigma_array <- array(rep(0, m*m*K), c(m, m, K))
     sigma[[1]] <- lapply(lapply(seq(dim(sigma_array)[3]), function(x) sigma_array[ , , x]), function(x) x+diag(m))
-  
+    
     theta_diff[1] <- 0
     
     w_array <- array(rep(0, n*1*K), c(n, 1, K))
@@ -80,12 +75,12 @@ mvFMR_oracle_fixedK <- function(X, Y, n=nrow(X), P=(ncol(X)-1), m=ncol(Y), K, tr
         }
       }
     }
-
+    
     # The first E and M steps #
     w[[2]] <- e_step_w(pi_, density, 1)
     
     pi_[[2]] <- m_step_pi(w, 1)
-    Bk[[2]] <- m_step_Bk_oracle(X, Y, Bk, inv_sigma, true_Bk, w, 1)
+    Bk[[2]] <- m_step_Bk_mvFMR(X, Y, Bk, w, 1)
     sigma[[2]] <- m_step_sigma(X, Y, Bk, w, 1)
     
     density[[2]] <- list()
@@ -105,12 +100,12 @@ mvFMR_oracle_fixedK <- function(X, Y, n=nrow(X), P=(ncol(X)-1), m=ncol(Y), K, tr
     theta_diff[2] <- total_diff_norm(pi_, Bk, sigma, 1)
     
     # The iteration of E and M steps #
-    t <- 2
-    while(theta_diff[t] >= 1e-6){
+    # Run at least 100 iterations #
+    for(t in 2:100){
       w[[t+1]] <- e_step_w(pi_, density, t)
       
       pi_[[t+1]] <- m_step_pi(w, t)
-      Bk[[t+1]] <- m_step_Bk_oracle(X, Y, Bk, inv_sigma, true_Bk, w, t)
+      Bk[[t+1]] <- m_step_Bk_mvFMR(X, Y, Bk, w, t)
       sigma[[t+1]] <- m_step_sigma(X, Y, Bk, w, t)
       
       density[[t+1]] <- list()
@@ -131,7 +126,35 @@ mvFMR_oracle_fixedK <- function(X, Y, n=nrow(X), P=(ncol(X)-1), m=ncol(Y), K, tr
       output <- list(pi=pi_[[t+1]], Bk=Bk[[t+1]], sigma=sigma[[t+1]])
       print(output)
       cat("Iteration :", t+1, "\n")
+      cat("K :", K, "\n")
+    }
     
+    while(theta_diff[t] >= 1e-6){
+      w[[t+1]] <- e_step_w(pi_, density, t)
+
+      pi_[[t+1]] <- m_step_pi(w, t)
+      Bk[[t+1]] <- m_step_Bk_mvFMR(X, Y, Bk, w, t)
+      sigma[[t+1]] <- m_step_sigma(X, Y, Bk, w, t)
+
+      density[[t+1]] <- list()
+      inv_sigma[[t+1]] <- list()
+      for(k in 1:K){
+        inv_sigma[[t+1]][[k]] <- solve(sigma[[t+1]][[k]])
+      }
+      for(k in 1:K){
+        density[[t+1]][[k]] <- density_f(X, Y, Bk[[t+1]][[k]], sigma[[t+1]][[k]], inv_sigma[[t+1]][[k]])
+        for(i in 1:n){
+          if(density[[t+1]][[k]][i] == 0){
+            density[[t+1]][[k]][i] <- 1e-300
+          }
+        }
+      }
+      theta_diff[t+1] <- total_diff_norm(pi_, Bk, sigma, t)
+
+      output <- list(pi=pi_[[t+1]], Bk=Bk[[t+1]], sigma=sigma[[t+1]])
+      print(output)
+      cat("Iteration :", t+1, "\n")
+
       if(t == maxiter){
         break
       }else{
@@ -140,8 +163,9 @@ mvFMR_oracle_fixedK <- function(X, Y, n=nrow(X), P=(ncol(X)-1), m=ncol(Y), K, tr
     }
   }, silent = TRUE)
   
+  optimal <- output
   optimal_w <- w[[t]]
   optimal_density <- density[[t]]
   
-  return(list(optimal=output, w=optimal_w, density=optimal_density))
+  return(list(optimal=optimal, optimal_w=optimal_w, optimal_density=optimal_density))
 }

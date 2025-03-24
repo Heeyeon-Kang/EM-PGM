@@ -1,16 +1,16 @@
-##############################################################################
-####              Penalized estimation for a finite mixture of            ####
-####                   multivariate regression models                     ####
-##############################################################################
-####                        Author: Heeyeon Kang                          ####
-####                      Supervisor: Sunyoung Shin                       ####
-##############################################################################
-####     R-code for applying mvFMR-MCP to the diabetes diagnosis data     ####
-####         using the EM-PGM algorithm presented in Section 6.1.         ####
-##############################################################################
+###################################################################################
+#### Penalized estimation in finite mixtures of multivariate regression models ####
+####                         via the EM-PGM algorithm                          ####
+###################################################################################
+####                           Author: Heeyeon Kang                            ####
+####                         Supervisor: Sunyoung Shin                         ####
+###################################################################################
+####       R-code for applying mvFMR-MCP to the diabetes diagnosis data        ####
+####           using the EM-PGM algorithm presented in Section 6.1.            ####
+###################################################################################
 
-# The following R-code demonstrates how to implement mvFMR-MCP using 
-# the EM-PGM algorithm to the diabetes diagnosis data presented in Section 6.1.
+# The following R-code demonstrates how to implement mvFMR-MCP using the EM-PGM algorithm 
+# to the diabetes diagnosis data presented in Section 6.1.
 
 # But, it can be analyzed by using the other methods (e.g., mvFMR-LASSO, mvFMR-SCAD).
 
@@ -30,4 +30,4 @@ lambda_s <- c(1e-4, 5*1e-3, 10*1e-3, 15*1e-3, 20*1e-3, 25*1e-3,
 
 diabetes_diagnosis_result <- PGM_mvFMR_MCP_nonfixedK(X, Y, eta=0.5, a=3.7, lambda=lambda_s, maxiter=50)
 
-save(diabetes_diagnosis_result, file="./Results/diabetes_diagnosis_result.rda")
+save(diabetes_diagnosis_result, file="./Results/Section 6.1/diabetes_diagnosis_result.rda")
