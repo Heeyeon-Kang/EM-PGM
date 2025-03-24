@@ -1,6 +1,6 @@
 # EM-PGM
 
-### Electronic supplement to Penalized estimation in finite mixtures of multivariate regression models via the EM-PGM algorithm"
+### Electronic supplement to "Penalized estimation in finite mixtures of multivariate regression models via the EM-PGM algorithm"
 
 
 This repository has the R-code to do the analyses and reproduce the figures and tables in Sections 5 and Section 6 of the manuscript and the supplementary material.
