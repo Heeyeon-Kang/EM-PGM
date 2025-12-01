@@ -22,9 +22,9 @@ The repository consists of the following folders:
     * ***flexmix_fixedK.R*** contains R-code to fit the R-package "flexmix" to the simulated data presented in Section 5.1 - 5.2.
     * ***oracle_fixedK.R*** contains R-code to estimate the oracle estimator presented in Section 5.1 - 5.2.
     * ***mvFMR_fixedK.R*** contains R-code for implementing 'mvFMR' to simulated data presented in Section 5.1 - 5.2.
-    * ***PGM_mvFMR_LASSO_fixedK.R***, ***PGM_mvFMR_SCAD_fixedK.R***, ***PGM_mvFMR_MCP_fixedK.R***, ***ADMM_mvFMR_LASSO_fixedK.R***, ***ADMM_mvFMR_SCAD_fixedK.R***, and ***ADMM_mvFMR_MCP_fixedK.R*** are R-codes for implementing 'mvFMR' with their respective penalty functions(LASSO, SCAD, and MCP) and respective algorithms(the EM-PGM algorithm and the ADMM solver) assuming that the number of components K is known, which corresponds to the setting in Section 5.1 - 5.2.
+    * ***PGM_mvFMR_LASSO_fixedK.R***, ***PGM_mvFMR_SCAD_fixedK.R***, ***PGM_mvFMR_MCP_fixedK.R***, ***ADMM_mvFMR_LASSO_fixedK.R***, ***ADMM_mvFMR_SCAD_fixedK.R***, and ***ADMM_mvFMR_MCP_fixedK.R*** are R-codes for implementing 'mvFMR' with their respective penalty functions(LASSO, SCAD, and MCP) and respective algorithms(the EM-PGM and the EM-ADMM algorithms) assuming that the number of components K is known, which corresponds to the setting in Section 5.1 - 5.2.
     * ***mvFMR.R*** contains R-code for implementing 'mvFMR' to simulated data presented in Section 5.3.
-    * ***PGM_mvFMR_LASSO.R***, ***PGM_mvFMR_SCAD.R***, ***PGM_mvFMR_MCP.R***, ***ADMM_mvFMR_LASSO.R***, ***ADMM_mvFMR_SCAD.R***, and ***ADMM_mvFMR_MCP.R*** are R-codes for implementing 'mvFMR' with their respective penalty functions(LASSO, SCAD, and MCP) and respective algorithms(the EM-PGM algorithm and the ADMM solver) assuming that the number of components K is unknown, which corresponds to the setting in Section 5.3.
+    * ***PGM_mvFMR_LASSO.R***, ***PGM_mvFMR_SCAD.R***, ***PGM_mvFMR_MCP.R***, ***ADMM_mvFMR_LASSO.R***, ***ADMM_mvFMR_SCAD.R***, and ***ADMM_mvFMR_MCP.R*** are R-codes for implementing 'mvFMR' with their respective penalty functions(LASSO, SCAD, and MCP) and respective algorithms(the EM-PGM and the EM-ADMM algorithms) assuming that the number of components K is unknown, which corresponds to the setting in Section 5.3.
   * Functions: R-codes of functions to implement all methods;
     * ***functions.R*** contains R-codes composed of functions to perform all methods in 'Analysis'.
     * ***simulation_summary_functions.R*** contains R-codes composed of functions for numerical presentation of simulation results.
@@ -41,14 +41,14 @@ The repository consists of the following folders:
     * ***sim3_analysis.R*** contains R-code for reproducing Tables 10-11 in Section 5.3 and ***mod7_table.rda, mod7_K_table.rda***, ***mod8_table.rda***, and ***mod8_K_table.rda*** are the corresponding files.
   * Section6.1;
     * ***PGM_diabetes_diagnosis.rda*** contains all results after fitting the data on 'mvFMR-MCP' with the EM-PGM algorithm.
-    * ***ADMM_diabetes_diagnosis.rda*** contains all results after fitting the data on 'mvFMR-MCP' with the ADMM solver.
+    * ***ADMM_diabetes_diagnosis.rda*** contains all results after fitting the data on 'mvFMR-MCP' with the EM-ADMM algorithm.
     * ***diabetes_diagnosis_analysis.R*** contains R-code for reproducing Table 12 of the diabetes diagnosis data presented in Section 6.1.
   * Section6.2;
     * ***PGM_CCLE.rda*** contains all results after fitting the data on 'mvFMR-MCP' with the EM-PGM algorithm.
-    * ***ADMM_CCLE.rda*** contains all results after fitting the data on 'mvFMR-MCP' with the ADMM solver.
+    * ***ADMM_CCLE.rda*** contains all results after fitting the data on 'mvFMR-MCP' with the EM-ADMM algorithm.
     * ***CCLE_analysis.R*** contains R-code for reproducing Table 13 of the CCLE data presented in Section 6.2.
 
 * Simulations: The results of simulation studies and real data analyses to reproduce the figures and tables presented in Section 5 and Section 6;
-  * ***diabetes_diagnosis.R*** and ***CCLE.R*** contain R-codes for applying 'mvFMR-MCP with the EM-PGM algorithm' and 'mvFMR-MCP with the ADMM solver' to the diabetes diagnosis data and the CCLE data presented in Section 6.1 and 6.2, respectively.
+  * ***diabetes_diagnosis.R*** and ***CCLE.R*** contain R-codes for applying 'mvFMR-MCP with the EM-PGM algorithm' and 'mvFMR-MCP with the EM-ADMM algorithm' to the diabetes diagnosis data and the CCLE data presented in Section 6.1 and 6.2, respectively.
   * ***simulation1.R***, ***simulation2.R***, and ***simulation3.R*** contains R-codes for implementing all methods on simulated data presented in Section 5.1 - 5.3, using parallel computing.
     
