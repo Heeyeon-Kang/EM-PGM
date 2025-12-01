@@ -92,13 +92,13 @@ FDR <- function(true, pred){
     pred[[j]] <- pred[[j]][switch_of_pred]
   }
   
-  new_pred_Bk <- pred$Bk
+  new_pred_Bk <- lapply(1:K, function(x) ifelse(abs(pred$Bk[[x]]) < 5e-6, 0, pred$Bk[[x]]))
   
   fdr <- vector(length = K)
   R <- sapply(new_pred_Bk, function(t) length(which(t != 0)))
   for(k in 1:K){
     selected <- (ifelse(abs(new_pred_Bk[[k]]) < 5e-6, 0, new_pred_Bk[[k]]) != 0)
-    fdr[k] <- length(which(true_Bk[[k]] == 0 & selected)) / R[k]
+    fdr[k] <- ifelse(R[k] == 0, 0, length(which(true_Bk[[k]] == 0 & selected)) / R[k])
   }
   
   return(mean(fdr))
@@ -177,13 +177,13 @@ FDR_no_penalty <- function(true, pred){
     pred[[j]] <- pred[[j]][switch_of_pred]
   }
   
-  new_pred_Bk <- pred$Bk
+  new_pred_Bk <- lapply(1:K, function(x) ifelse(abs(pred$Bk[[x]]) < 5e-6, 0, pred$Bk[[x]]))
   
   fdr <- vector(length = K)
   R <- sapply(new_pred_Bk, function(t) length(which(t != 0)))
   for(k in 1:K){
     selected <- (ifelse(abs(new_pred_Bk[[k]]) < 5e-6, 0, new_pred_Bk[[k]]) != 0)
-    fdr[k] <- length(which(true_Bk[[k]] == 0 & selected)) / R[k]
+    fdr[k] <- ifelse(R[k] == 0, 0, length(which(true_Bk[[k]] == 0 & selected)) / R[k])
   }
   
   return(mean(fdr))
