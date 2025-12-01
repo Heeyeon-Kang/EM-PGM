@@ -6,11 +6,11 @@
 ####                         Supervisor: Sunyoung Shin                         ####
 ###################################################################################
 ####          R-code for applying mvFMR-LASSO to the simulated data            ####
-####             using the ADMM solver presented in Section 5.3.               ####
+####          using the EM-ADMM algorithm presented in Section 5.3.            ####
 ###################################################################################
 
-# The following R-code demonstrates how to implement mvFMR-LASSO using the ADMM solver 
-# to the simulated data from Section 5.3.
+# The following R-code demonstrates how to implement mvFMR-LASSO using the EM-ADMM
+# algorithm to the simulated data from Section 5.3.
 
 # As a reference, we assumed that the number of components K was unknown in Section 5.3.
 
