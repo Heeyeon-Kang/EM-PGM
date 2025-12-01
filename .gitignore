@@ -1,9 +1,9 @@
-# R 관련 불필요 파일
+# Unnecessary files
 .Rhistory
 .RData
 .Rproj.user/
 
-# GitHub에 올리지 않기
+# Do not upload to GitHub
 Data/CCLE_expression.csv
 Data/CCLE_Drugdata.csv
 Data/CCLE_data_full.R
