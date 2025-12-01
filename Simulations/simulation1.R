@@ -8,7 +8,8 @@
 ####            R-codes to fit the simulation data in Section 5.1.             ####
 ###################################################################################
 
-# The following R-code fits the simulation data presented in Section 5.1 using parallel computing.
+# The following R-code fits the simulation data presented in Section 5.1 
+# using parallel computing.
 
 # We performed 500 simulated trials using parallel computing with 50 cores.
 # The following R-codes are designed to automatically adjust and use a smaller number
@@ -251,7 +252,7 @@ for(j in 1:nrow(index_parallel)){
   rm(result_name)
 }
 
-## mvFMR-LASSO using the ADMM solver ##
+## mvFMR-LASSO using the EM-ADMM algorithm ##
 # We used rho as 1 in both predictor designs; independent and correlated.
 for(j in 1:nrow(index_parallel)){
   parallel_outputs <- foreach(i=index_parallel[j,],
@@ -283,7 +284,7 @@ for(j in 1:nrow(index_parallel)){
   rm(result_name)
 }
 
-## mvFMR-SCAD using the ADMM solver ##
+## mvFMR-SCAD using the EM-ADMM algorithm ##
 # We used rho as 1 in both predictor designs; independent and correlated.
 for(j in 1:nrow(index_parallel)){
   parallel_outputs <- foreach(i=index_parallel[j,],
@@ -315,7 +316,7 @@ for(j in 1:nrow(index_parallel)){
   rm(result_name)
 }
 
-## mvFMR-MCP using the ADMM solver ##
+## mvFMR-MCP using the EM-ADMM algorithm ##
 # We used rho as 1 in both predictor designs; independent and correlated.
 for(j in 1:nrow(index_parallel)){
   parallel_outputs <- foreach(i=index_parallel[j,],
@@ -553,7 +554,7 @@ for(j in 1:nrow(index_parallel)){
   rm(result_name)
 }
 
-## mvFMR-LASSO using the ADMM solver ##
+## mvFMR-LASSO using the EM-ADMM algorithm ##
 # We used rho as 1 in both predictor designs; independent and correlated.
 for(j in 1:nrow(index_parallel)){
   parallel_outputs <- foreach(i=index_parallel[j,],
@@ -585,7 +586,7 @@ for(j in 1:nrow(index_parallel)){
   rm(result_name)
 }
 
-## mvFMR-SCAD using the ADMM solver ##
+## mvFMR-SCAD using the EM-ADMM algorithm ##
 # We used rho as 1 in both predictor designs; independent and correlated.
 for(j in 1:nrow(index_parallel)){
   parallel_outputs <- foreach(i=index_parallel[j,],
@@ -617,7 +618,7 @@ for(j in 1:nrow(index_parallel)){
   rm(result_name)
 }
 
-## mvFMR-MCP using the ADMM solver ##
+## mvFMR-MCP using the EM-ADMM algorithm ##
 # We used rho as 1 in both predictor designs; independent and correlated.
 for(j in 1:nrow(index_parallel)){
   parallel_outputs <- foreach(i=index_parallel[j,],
@@ -854,7 +855,7 @@ for(j in 1:nrow(index_parallel)){
   rm(result_name)
 }
 
-## mvFMR-LASSO using the ADMM solver ##
+## mvFMR-LASSO using the EM-ADMM algorithm ##
 # We used rho as 1 in both predictor designs; independent and correlated.
 for(j in 1:nrow(index_parallel)){
   parallel_outputs <- foreach(i=index_parallel[j,],
@@ -886,7 +887,7 @@ for(j in 1:nrow(index_parallel)){
   rm(result_name)
 }
 
-## mvFMR-SCAD using the ADMM solver ##
+## mvFMR-SCAD using the EM-ADMM algorithm ##
 # We used rho as 1 in both predictor designs; independent and correlated.
 for(j in 1:nrow(index_parallel)){
   parallel_outputs <- foreach(i=index_parallel[j,],
@@ -918,7 +919,7 @@ for(j in 1:nrow(index_parallel)){
   rm(result_name)
 }
 
-## mvFMR-MCP using the ADMM solver ##
+## mvFMR-MCP using the EM-ADMM algorithm ##
 # We used rho as 1 in both predictor designs; independent and correlated.
 for(j in 1:nrow(index_parallel)){
   parallel_outputs <- foreach(i=index_parallel[j,],
