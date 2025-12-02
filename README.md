@@ -14,7 +14,7 @@ The repository consists of the following folders:
   * ***simulation_seed_number.R*** contains the seed numbers generating the data of simulations in Section 5.
   * ***simulation_data.R*** contains the functions generating the dataset using in Section 5.
   * ***diabetes_diagnosis_data.csv*** can be accessed from **Diabetes data** section in <http://hbiostat.org/data/>.
-  * ***CCLE_genes.csv*** and ***CCLE_drugs.csv*** represent the predictor and response data used in the CCLE data analysis. The complete CCLE dataset is accessible at <https://sites.broadinstitute.org/ccle/datasets>. Because the original files are very large and this repository is intended to contain only the data necessary to reproduce the analysis.
+  * ***CCLE_genes.csv*** and ***CCLE_drugs.csv*** represent the predictor and response data used in the CCLE data analysis. The complete CCLE dataset is accessible at <https://sites.broadinstitute.org/ccle/datasets> and <https://depmap.org/portal/ccle>. Because the original files are very large and this repository is intended to contain only the data necessary to reproduce the analysis.
   * ***diabetes_diagnosis_data.R*** and ***CCLE_data.R*** are the R-codes of the process of refining the data, ***diabetes_diagnosis_data.csv*** and ***CCLE_genes.csv, CCLE_drugs.csv***, respectively.
  
 * Scripts;
